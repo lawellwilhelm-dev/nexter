@@ -2,15 +2,27 @@
     grid-column: center-start / center-end;
     margin: 15rem 0;
 
-    display: grid;
-    // grid-template-columns: repeat(3, 1fr);
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    grid-gap: 6rem;
-    align-items: start;
-
+    @supports (display: grid) {
+        display: grid;
+        // grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        grid-gap: 6rem;
+        align-items: start;
+    }
 }
 
 .feature {
+    width: 33.333%;
+    float: left;
+    margin-bottom: 6rem;
+
+    @supports (display: grid) {
+        width: auto;
+        margin-bottom: 0;
+        // float: none; float, display: inline-block, display: table-cell, and vertical-align are ignored by Grid contain and Flexbox container.
+        
+    }
+    
     display: grid;
     grid-template-columns: min-content 1fr;
     gap: 1.5rem 2.5rem;
